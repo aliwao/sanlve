@@ -1,0 +1,127 @@
+{template "content","header"}
+<!--main-->
+  {if $catid == "72"}
+<div class="main">
+	<div class="col-left">
+    	<div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)} 列表</div>
+    	{php $group0="";}
+    	{php $group1="";}
+    	{php $group2="";}
+    	{php $group3="";}
+    	{pc:content action="lists" catid="$catid" num="25" order="group0,group1,group2,group3,title"page="$page"}
+        <div id="pages" class="text-c">{$pages}</div>
+{loop $data $r}
+<div class="main_villa_design">
+		{if $group0=="" OR $r[group0]!=$group0}
+		<div class="jz-g0" id="{$r[group0]}" ><p>{$r[group0]}</p></div>
+		{/if}
+		{if $group1=="" OR $r[group1]!=$group1}
+			{if $r[group1]!=""}
+				<div class="jz-g1" id="{$r[group1]}" ><p>{$r[group1]}</p></div>
+			{/if}
+		{/if}
+		{if $group2=="" OR $r[group2]!=$group2}
+			{if $r[group2]!=""}
+				<div class="jz-g2" id="{$r[group2]}" ><p>{$r[group2]}</p></div>
+			{/if}
+		{/if}
+		{if $group3=="" OR $r[group3]!=$group3}
+			{if $r[group3]!=""}
+				<div class="jz-g3" id="{$r[group3]}" ><p>{$r[group3]}</p></div>
+			{/if}
+		{/if}
+		<div class="jz-g4" style="height:20px;"><p>·{$r[title]}{$r[object]} 客服经理<img src="./statics/images/sl/manger.jpg"/>:{$r[manger]} 客服电话：<img src="./statics/images/sl/tel.jpg"/>{$r[tel]}</p></div>
+    	{php $group0=$r[group0];}
+    	{php $group1=$r[group1];}
+    	{php $group2=$r[group2];}
+    	{php $group3=$r[group3];}
+    	</div>
+{/loop}
+        <div id="pages" class="text-c">{$pages}</div>
+{/pc}
+  </div>
+  {else}
+<div class="main">
+	<div class="col-left">
+    	<div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)} 列表</div>
+    	{pc:content action="lists" catid="$catid" num="25" order="id DESC" page="$page"}
+        <ul class="list lh24 f14">
+{loop $data $r}
+	<li><span class="rt">{date('Y-m-d H:i:s',$r[inputtime])}</span>·<a href="{$r[url]}" target="_blank"{title_style($r[style])}>{$r[title]}</a></li>
+	{if $n%5==0}<li class="bk20 hr"></li>{/if}
+{/loop}
+        </ul>
+        <div id="pages" class="text-c">{$pages}</div>
+{/pc}
+  </div>
+  
+  {/if}
+    {if $money}
+    <div class="col-auto">
+        <div class="box">
+            <h5 class="title-2">{$catname}总排行</h5>
+             {pc:content action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
+            <ul class="content digg">
+				{loop $data $r}
+					<li><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+				{/loop}
+            </ul>
+            {/pc}
+        </div>
+        <div class="bk10"></div>
+        <div class="box">
+            <h5 class="title-2">{$catname}本月排行</h5>
+             {pc:content action="hits" catid="$catid" num="8" order="monthviews DESC" cache="3600"}
+            <ul class="content rank">
+				{loop $data $r}
+				<li><span>{number_format($r[monthviews])}</span><a href="{$r[url]}"{title_style($r[style])} class="title" title="{$r[title]}">{str_cut($r[title],56,'...')}</a></li>
+				{/loop}
+            </ul>
+            {/pc}
+        </div>
+    </div>
+    {/if}
+</div>
+{if $catid == "72"}
+<div style="position:fixed;top:90px;right:0px; z-index:999;" id="yyf">
+  <div id="floatleft_s">
+    <div>
+      <div class="floatleft_sl"> </div>
+      <dl>
+        <dt><a href="{$url}">{$catname}</a></dt>
+        {php $group0="";}
+        {php $group1="";}
+        {php $j=1;}
+    	{pc:content action="lists" catid="$catid" num="25" order="group0,group1,group2,group3,title"page="$page"}
+			{loop $data $r}
+				{if $group0=="" OR $r[group0]!=$group0}
+	        		<dd class="jz_banner_a{$j}"><a href="#{$r[group0]}">{$r[group0]}</a><br></dd>
+	        		{$j++}
+				{/if}
+				{if $group1=="" OR $r[group1]!=$group1}
+					{if $r[group1]!=""}
+						<dd class="jz_banner_a{$j}" id="{$r[group1]}" style="background:#2064ae; padding-left:30px !important;position:relative;"><p><a href="#{$r[group1]}">|-{$r[group1]}</a></p></dd>
+						{$j++}
+					{/if}
+				{/if}
+				{php $group0=$r[group0];}
+    			{php $group1=$r[group1];}
+			{/loop}
+        {/pc}
+        <dt><a href="javascript:;;" id="fh">返回顶部</a></dt>
+      </dl>
+    </div>
+    <a href="javascript:;;" class="guanbi" id="fc">关闭</a> </div>
+</div>
+{/if}
+{template "content","footer"}
+
+<script type="text/javascript">
+
+   $( document ).ready(function () {
+       var menu_num = {$j} + 1;
+       $(".floatleft_sl").height(menu_num*23);
+       $("#floatleft_s dl").height(menu_num*30);
+   });
+   
+</script>

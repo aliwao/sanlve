@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link href="{CSS_PATH}reset.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}main.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}extends.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.sgallery.js"></script>
+<script language="JavaScript">
+/*var today = new Date();
+ var now=today.getTime();
+ var tom=new Date(2015,8,26,0,0); //终点
+ var will=tom.getTime();
+ var tms = will-now;
+ var days = Math.floor(tms / (1000 * 60 * 60 * 24));	*/
+$(document).ready(function() {
+   	var oft=0;					   
+	if($(document).width()<=1920) oft=-(1920-$(document).width())/2;	
+	$(".slider").css('left',oft);
+	var k = $(".num > li").length;
+	var l = 0;
+	var m;
+	$(".num li").mouseover(function() {
+		l = $(".num li").index(this);
+		a(l,oft)
+	}).eq(0).mouseover();
+	$('#header_ad_box').hover(function() {
+		clearInterval(m)
+	},
+	function() {
+		m = setInterval(function() {
+			l++;
+			if (l == k) {
+				l = 0
+			};
+			a(l)
+		},
+		10000)
+	}).trigger("mouseleave");
+	//$(".index_case img,.main_1 img,.jz_index_ad img,.main_deepblue_inner img,.main_shendu img,.main_villa_design img,.main_gray img").lazyload({effect: "fadeIn"});
+});
+function a(d,oft) {
+	var e = $("#header_ad_box").width();
+	$(".slider").stop(true, false).animate({
+		left: -e * d+oft
+	},
+	1000);
+	$(".num li").removeClass("on").eq(d).addClass("on")
+};
+</script>
+</head>
+<body>
+
+{php $dis_announce=0;}
+{pc:announce  action="lists" siteid="$siteid" num="5"}
+   {loop $data $r}
+   		{php $dis_announce=1;}
+   {/loop}
+{/pc}
+
+{if $dis_announce==1 }
+<div style="position:fixed;top:90px;right:0px; z-index:999;" id="ggf">
+	<div style="display:block; width:200px">
+	     <div style="display:block;">
+	     <dl>
+	     <dt><span style="display:block; height:24px; font-size:16px; align:center; padding-top:5px;background:#333333;color:#ffffff;text-align:center;">公司公告</span></dt>
+	        {pc:announce  action="lists" siteid="$siteid" num="5"}
+	           {php $k=1;}
+	           {loop $data $r}
+	             <dt><a href="{APP_PATH}index_announce_index_show.shtml?aid={$r['aid']}"><span class="jz_banner_a{$k}" style="display:block; height:24px; font-size:16px; align:center; padding-top:5px;color:#ffffff;"> {$r['title']}</span></a></dt>
+	           {$k++}
+	           {/loop}
+	        {/pc}
+	     </dl>
+	    </div>
+	</div>
+	
+    <a href="javascript:;;" class="guanbi" id="ggc" style="text-align:center;">关闭</a> </div>
+</div>
+{/if}
+
+<div id="header">
+  <div id="header">
+    <div class="header_t">
+		<div class="logo">
+			<a href="./">
+				<img src="./statics/images/sl/logo.png" width="170">
+			</a>
+		</div>
+		<div class="header_m">
+			<div class="search">
+				<div class="bd" align="center">
+					<form action="{APP_PATH}index.php" method="get" target="_blank">
+						<input type="hidden" name="m" value="search"/>
+						<input type="hidden" name="c" value="index"/>
+						<input type="hidden" name="a" value="init"/>
+						<input type="hidden" name="typeid" value="{$typeid}" id="typeid"/>
+						<input type="hidden" name="siteid" value="{$siteid}" id="siteid"/>
+						<input type="text" class="text" name="q" id="q"/><input type="submit" value="搜 索" class="button" />
+					</form>
+				</div>
+			</div>
+			<div class="hottel">
+				<span><strong>服务热线 025-59927781</strong></span>
+			</div>
+		</div>
+		<div class="title">
+			{pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+				<ul>
+				{if $catid==""}
+				<li><a href="{siteurl($siteid)}" style="background:#333; color:#fff;"><strong>三略建筑</strong></a></li>
+				{else}
+				<li><a href="{siteurl($siteid)}"><strong>三略建筑</strong></a></li>
+				{/if}
+				{loop $data $r}
+				{if $catid==$r[catid]}
+					<li><a href="{$r[url]}" style="background:#333; color:#fff;"><strong>{$r[catname]}</strong></a></li>
+				{else}
+					<li><a href="{$r[url]}"><strong>{$r[catname]}</strong></a></li>
+				
+				{/if}
+				{/loop}
+				</ul>
+			{/pc}
+	  </div>
+    </div>
+  </div>
+</div>
+</div>

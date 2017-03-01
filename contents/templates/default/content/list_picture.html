@@ -1,0 +1,22 @@
+{template "content","header"}
+<!--main-->
+<div class="main photo-channel">
+<div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> > {catpos($catid)}</div>
+<div class="bk10"></div>
+	{pc:content action="lists" catid="$catid" num="10" order="id DESC" page="$page"}
+		<div id="pages" class="text-c">{$pages}</div>
+		<ul class="photo-list picbig">
+			{loop $data $r}
+			<li class="title-case">
+			<div class="img-wrap-case">
+			<a href="{$r[url]}"><img src="{thumb($r[thumb],300,224)}" width="300" height="224" alt="{$r[title]}"/></a>
+			</div>
+			<span style="color:{$r[style]}" nowrap="nowrap">{str_cut($r[title],60)}{if $r[money]} (单价：{$r[money]} 元){/if}</span>
+			</li>
+			{/loop}
+		</ul>
+		<div id="pages" class="text-c">{$pages}</div>
+	{/pc}
+    </div>
+</div>
+{template "content","footer"}

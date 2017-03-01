@@ -1,0 +1,19 @@
+<?php
+
+return array (
+	'default' => array (
+		'hostname' => 'hdm189315291.my3w.com',
+		'port' => 3306,
+		'database' => 'hdm189315291_db_closed',
+		'username' => 'hdm189315291',
+		'password' => 's1A3n5L7v9E',
+		'tablepre' => 'sl_',
+		'charset' => 'utf8',
+		'type' => 'mysqli',
+		'debug' => true,
+		'pconnect' => 0,
+		'autoconnect' => 0
+		),
+);
+
+?>

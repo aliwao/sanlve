@@ -1,0 +1,71 @@
+{template "content","header"}
+<!--main-->
+<div class="main">
+	{if $catid == 9}
+		<div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)} <span class="rt"><script type="text/javascript">document.write('<iframe src="{APP_PATH}index.php?m=member&c=index&a=mini&forward='+encodeURIComponent(location.href)+'&siteid={get_siteid()}" allowTransparency="true"  width="500" height="24" frameborder="0" scrolling="no"></iframe>')</script></span></div>
+	{else}
+		<div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)}</div>
+	{/if}
+	<div class="bk30"></div>
+	{loop subcat($catid) $v}
+	{php if($v['type']!=0) continue;}
+			<div class="shu" id="cat_{$v[catid]}"><b>{$v[catname]}</b><a href="{$v[url]}" class="sd_index_b" style="color:#fff;">了解更多</a></div>
+			
+			<div class="main_villa_design">
+			{pc:content action="lists" catid="$v[catid]" thumb="1" num="8" order="id DESC"}
+			<p>
+	            {loop $data $r}
+	                <div class="main_villa_column"></div>
+					<dl>
+					  <dt><a target="_blank" href="{$r['url']}" title="{str_cut($r['title'],30)}"><img width="238" height="240" src="{$r['thumb']}" alt="{$r['title']}" style="display: inline;"></a></dt>
+					  
+					  {if $r[money]}
+					  	<dd>{str_cut($r['title'],40)}(单价:{$r[money]}元)</br>{str_cut($r['description'],100)}</dd>
+					  {else}
+					  	<dd>{str_cut($r['title'],40)}</br>{str_cut($r['description'],100)}</dd>
+					  {/if}
+					</dl>
+	            {/loop}
+				</p>
+			{/pc}
+	        </div>
+	{/loop}
+</div>
+
+  <div class="bk30"></div>
+<div style="position:fixed;top:90px;left:0px; z-index:999;" id="yyf">
+  <div id="floatleft">
+    <div>
+<div class="floatleft_l"> </div>
+      <dl>
+        <dt><a href="{$url}">{$catname}</a></dt>
+        {php $j=1;}
+        {loop subcat($catid) $v}
+	        <dd class="jz_banner_a{$j}">
+	        	<a href="#cat_{$v[catid]}">看{$v[catname]}<br></a>
+	        </dd>
+	    {$j++}
+        {/loop}
+        <dt><a href="javascript:;;" id="fh">返回顶部</a></dt>
+      </dl>
+    </div>
+    <a href="javascript:;;" class="guanbi" id="fc">关闭</a> </div>
+</div>
+<script type="text/javascript">
+function ChannelSlide(Name,Class){
+	$(Name+' ul.photo li').sGallery({
+		titleObj:Name+' div.title p',
+		thumbObj:Name+' .thumb li',
+		thumbNowClass:Class
+	});
+}
+new ChannelSlide(".channel-slide","on",311,260);
+
+   $( document ).ready(function () {
+       var menu_num = {$j} + 1;
+       $(".floatleft_l").height(menu_num*36);
+       $("#floatleft dl").height(menu_num*45);
+   });
+
+</script>
+{template "content","footer"}

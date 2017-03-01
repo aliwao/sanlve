@@ -1,0 +1,337 @@
+{template "content","header"}
+<!--main-->
+<div id="header">
+  <div id="header">
+  <div id="header_ad">
+    <div id="header_ad_box">
+		 <ul class="slider" style="left: -285.5px;">
+	        <li> <a target="_blank" href="" title=""><img src="./statics/images/sl/top5pic-1.jpg" alt=""></a></li>
+	        <li> <a target="_blank" href="" title=""><img src="./statics/images/sl/top5pic-2.jpg" alt=""></a></li>
+	        <li> <a target="_blank" href="" title=""><img src="./statics/images/sl/top5pic-3.jpg" alt=""></a></li>
+	        <li> <a target="_blank" href="" title=""><img src="./statics/images/sl/top5pic-4.jpg" alt=""></a></li>
+	        <li> <a target="_blank" href="" title=""><img src="./statics/images/sl/top5pic-5.jpg" alt=""></a></li>
+         </ul>
+    </div>
+    <ul class="num">
+      <li class="rgbf85a59 on"></li>
+      <li class="rgb39bbd3"></li>
+      <li class="rgb8cc13f"></li>
+      <li class="rgbcccccc"></li>
+      <li class="rgbeece83"></li>
+    </ul>
+  </div>
+</div>
+</div>
+<div class="main">
+	<div class="main_villa_design">
+		<h3 class="index_h3">批量精装定制找三略 · 讲述每套设计背后的故事</h3>
+		<h3 class="index_h3">案例 深度解析 点评</h3>
+	</div>
+	<div class="shu"><b>住宅装修案例</b><font color="#f37022">精品推荐</font></div>
+	<div class="main_villa_design">
+		{pc:content action="lists" catid="51" thumb="1" num="8" order="id DESC"}
+                {loop $data $r}
+	                <div class="main_villa_column"></div>
+                	<div class="cat-area-flat-left">
+	                    <div>
+							<dl>
+							  <dt><a target="_blank" href="{$r['url']}" title="{str_cut($r['title'],30)}"><img width="238" height="240" src="{$r['thumb']}" alt="{$r['title']}" style="display: inline;"></a></dt>
+							  <dd>{str_cut($r['description'],200)}</dd>
+							</dl>
+						</div>
+						<div class="title-bg" style="width: 238px;"></div>
+						<div class="title">
+							<strong><a href="{$r['url']}" target="_blank" title="{$r['title']}"}> {str_cut($r['title'],40)} {if $r['money']}(单价：{$r['money']}元){/if}</a></strong>
+						</div>
+					</div>
+                {/loop}
+        {/pc}
+	</div>
+	<a href="./list-51-1.html" class="sd_index_a" style="color:#fff;">了解更多住宅装修案例</a>
+	<div class="shu"><b>办公装修案例</b><font color="#f37022">精品推荐</font></div>
+	<div class="main_villa_design">
+		{pc:content action="lists" catid="47" thumb="1" num="8" order="id DESC"}
+                {loop $data $r}
+	                <div class="main_villa_column"></div>
+                	<div class="cat-area-flat-left">
+	                    <div>
+							<dl>
+							  <dt><a target="_blank" href="{$r['url']}" title="{str_cut($r['title'],30)}"><img width="238" height="240" src="{$r['thumb']}" alt="{$r['title']}" style="display: inline;"></a></dt>
+							  <dd>{str_cut($r['description'],200)}</dd>
+							</dl>
+						</div>
+						<div class="title-bg" style="width: 238px;"></div>
+						<div class="title">
+							<strong><a href="{$r['url']}" target="_blank" title="{$r['title']}"}> {str_cut($r['title'],40)} {if $r['money']}(单价：{$r['money']}元){/if}</a></strong>
+						</div>
+					</div>
+                {/loop}
+        {/pc}
+	</div>
+	<a href="./list-47-1.html" class="sd_index_a" style="color:#fff;">了解更多办公装修案例</a>
+	<div class="shu"><b>酒店式公寓装修案例</b><font color="#f37022">精品推荐</font></div>
+	<div class="main_villa_design">
+		{pc:content action="lists" catid="43" thumb="1" num="8" order="id DESC"}
+                {loop $data $r}
+	                <div class="main_villa_column"></div>
+                	<div class="cat-area-flat-left">
+	                    <div>
+							<dl>
+							  <dt><a target="_blank" href="{$r['url']}" title="{str_cut($r['title'],30)}"><img width="238" height="240" src="{$r['thumb']}" alt="{$r['title']}" style="display: inline;"></a></dt>
+							  <dd>{str_cut($r['description'],200)}</dd>
+							</dl>
+						</div>
+						<div class="title-bg" style="width: 238px;"></div>
+						<div class="title">
+							<strong><a href="{$r['url']}" target="_blank" title="{$r['title']}"}> {str_cut($r['title'],40)} {if $r['money']}(单价：{$r['money']}元){/if}</a></strong>
+						</div>
+					</div>
+                {/loop}
+        {/pc}
+	</div>
+	<a href="./list-43-1.html" class="sd_index_a" style="color:#fff;">了解更多酒店式公寓装修案例</a>
+	<div class="shu"><b>商业装修案例</b><font color="#f37022">精品推荐</font></div>
+	<div class="main_villa_design">
+		{pc:content action="lists" catid="39" thumb="1" num="8" order="id DESC"}
+                {loop $data $r}
+	                <div class="main_villa_column"></div>
+                	<div class="cat-area-flat-left">
+	                    <div>
+							<dl>
+							  <dt><a target="_blank" href="{$r['url']}" title="{str_cut($r['title'],30)}"><img width="238" height="240" src="{$r['thumb']}" alt="{$r['title']}" style="display: inline;"></a></dt>
+							  <dd>{str_cut($r['description'],200)}</dd>
+							</dl>
+						</div>
+						<div class="title-bg" style="width: 238px;"></div>
+						<div class="title">
+							<strong><a href="{$r['url']}" target="_blank" title="{$r['title']}"}> {str_cut($r['title'],40)} {if $r['money']}(单价：{$r['money']}元){/if}</a></strong>
+						</div>
+					</div>
+                {/loop}
+        {/pc}
+	</div>
+	<a href="./list-39-1.html" class="sd_index_a" style="color:#fff;">了解更多商业装修案例</a>
+	
+	
+	<div class="main_villa_design">
+		<h3 class="index_h3">建材展厅・<font color="#f37022">三略合作/三略严选/三略定制</font></h3>
+	</div>
+	<div class="shu"><b>三略合作</b><font color="#f37022">精品推荐</font></div>
+	<div class="main_villa_design">
+		{pc:content action="lists" catid="69" thumb="1" num="8" order="id DESC"}
+            {loop $data $r}
+                <div class="main_villa_column"></div>
+            	<div class="cat-area-flat-left">
+                    <div>
+						<dl>
+						  <dt><a target="_blank" href="{$r['url']}" title="{str_cut($r['title'],30)}"><img width="238" height="240" src="{$r['thumb']}" alt="{$r['title']}" style="display: inline;"></a></dt>
+						  <dd>{str_cut($r['description'],200)}</dd>
+						</dl>
+					</div>
+					<div class="title-bg" style="width: 238px;"></div>
+					<div class="title">
+						<strong><a href="{$r['url']}" target="_blank" title="{$r['title']}"}> {str_cut($r['title'],40)} {if $r['money']}(单价：{$r['money']}元){/if}</a></strong>
+					</div>
+				</div>
+            {/loop}
+        {/pc}
+	</div>
+	<div class="shu"><b>三略严选</b><font color="#f37022">精品推荐</font></div>
+	<div class="main_villa_design">
+		{pc:content action="lists" catid="70" thumb="1" num="8" order="id DESC"}
+                {loop $data $r}
+	                <div class="main_villa_column"></div>
+                	<div class="cat-area-flat-left">
+	                    <div>
+							<dl>
+							  <dt><a target="_blank" href="{$r['url']}" title="{str_cut($r['title'],30)}"><img width="238" height="240" src="{$r['thumb']}" alt="{$r['title']}" style="display: inline;"></a></dt>
+							  <dd>{str_cut($r['description'],200)}</dd>
+							</dl>
+						</div>
+						<div class="title-bg" style="width: 238px;"></div>
+						<div class="title">
+							<strong><a href="{$r['url']}" target="_blank" title="{$r['title']}"}> {str_cut($r['title'],40)} {if $r['money']}(单价：{$r['money']}元){/if}</a></strong>
+						</div>
+					</div>
+                {/loop}
+        {/pc}
+	</div>
+	<div class="shu"><b>三略定制</b><font color="#f37022">精品推荐</font></div>
+	<div class="main_villa_design">
+		{pc:content action="lists" catid="71" thumb="1" num="8" order="id DESC"}
+                {loop $data $r}
+	                <div class="main_villa_column"></div>
+                	<div class="cat-area-flat-left">
+	                    <div>
+							<dl>
+							  <dt><a target="_blank" href="{$r['url']}" title="{str_cut($r['title'],30)}"><img width="238" height="240" src="{$r['thumb']}" alt="{$r['title']}" style="display: inline;"></a></dt>
+							  <dd>{str_cut($r['description'],200)}</dd>
+							</dl>
+						</div>
+						<div class="title-bg" style="width: 238px;"></div>
+						<div class="title">
+							<strong><a href="{$r['url']}" target="_blank" title="{$r['title']}"}> {str_cut($r['title'],40)} {if $r['money']}(单价：{$r['money']}元){/if}</a></strong>
+						</div>
+					</div>
+                {/loop}
+        {/pc}
+	</div>
+	<a href="./list-68-1.html" class="sd_index_a" style="color:#fff;">了解更多建材</a>
+	{php $dis_shop = 0;}
+	
+	
+	{pc:get sql="SELECT ismenu FROM sl_category where catid=9" return="data"}
+		{loop $data $r}
+			{php $dis_shop = $r['ismenu'];}
+		{/loop}
+	{/pc}
+	
+	{if $dis_shop==1}
+	<div class="main_product_design">
+		<h3 class="index_h3">买家店・<font color="#f37022">买的安全,买的放心</font></h3>
+		{pc:get sql="SELECT count(*) as count, sl1.typeid,sl1.typename as title,sl1.thumb,sl2.catid FROM sl_cus_code as sl1, sl_product as sl2 WHERE sl1.catid=34 AND sl1.typeid=sl2.custypeid GROUP BY sl1.typeid, sl1.typename,sl1.thumb ORDER BY sl1.typeid ASC" num="8" cache="1" return="data"}
+                {loop $data $r}
+                    <div class="main_product_column"></div>
+					<dl>
+					  <dt><a target="_blank" href="./index_content_index_lists.shmtl?catid={$r['catid']}" title="{str_cut($r['title'],30)}"><img width="238" height="240" src="{$r['thumb']}" alt="{$r['title']}" style="display: inline;"></a><span><img width="50" height="50" src="./statics/images/sl/main_designers_con.png" style="display: inline;"></span></dt>
+					   <dd>{str_cut($r['title'],30)}({$r['count']}件)</dd>
+					</dl>
+                {/loop}
+        {/pc}
+	</div>
+	<a href="./list-9-1.html" class="sd_index_a" style="color:#fff;">了解更多商品</a>
+<?php
+function GetRandStr() 
+{ 
+    $chars = array( 
+        "a", "b", "c", "d", "e", "f", "0", "1", "2",  
+        "3", "4", "5", "6", "7", "8", "9" 
+    );
+    $charsLen = count($chars) - 1; 
+    shuffle($chars); 
+    return $chars[mt_rand(0, $charsLen)]; 
+} 
+?>
+
+	<div class="bk30"></div>
+	<div class="box_top_product">
+        <h5 class="index_h3">买家店・<font color="#f37022">成交信息</font></h5>
+        <div class="tab-content">
+	        {php $num=0;}
+			{pc:get sql="SELECT * FROM sl_pay_account t1, sl_order_content t2 WHERE t1.trade_sn= t2.trade_sn ORDER BY addtime DESC" num="20" cache="1" return="data"}
+				{loop $data $r}
+				    <div class="comment">
+				    	 {php $num++;}
+				    	 {php $danjia = $r[money]/$r[quantity];}
+				    		<font color="#{$GetRandStr()}{$rand(11111,99999)}" style="font-size:12pt;" >成交信息:<a href="./index_content_index_show.shtml?catid={$r[a_catid]}&id={$r[a_id]}">{$r[a_title]}</a>(单价:{$danjia}元) {$r[quantity]}件 总价:<font color="red">{$r[money]}</font>元  <span style="float:right">成交时间:<?php echo date('Y-m-d H:i:s', $r[addtime])?></span></font>
+					</div>
+				{/loop}
+			{/pc}
+     	</div>
+	</div>
+	
+	<div class="box_top_comment">
+        <h5 class="index_h3">买家店・<font color="#f37022">用户评论</font></h5>
+        <div class="tab-content">
+	        <ul class="content digg">
+			{pc:comment action="bang" num="10" cache="1"}
+			{php $comment = $data;}
+				{loop $data $r}
+				    <h3><a href="{$r[url]}">{$r[title]}</a><h3>
+				    <div class="comment">
+						{pc:comment action="lists" commentid="$r[commentid]" siteid="$siteid" page="$_GET[page]" hot="$hot" num="2" return="data_c"}
+							{loop $data_c $v}
+							    <div class="content"><font color="#{$GetRandStr()}{$rand(11111,99999)}" style="font-size:11pt;" >{stripcslashes($v[content])}</font>
+								    <div class="rt"><a href="javascript:void(0)" onclick="reply({$v[id]}, '{$r[commentid]}')">回复</a>  <a href="javascript:void(0)" onclick="support({$v[id]}, '{$r[commentid]}')">支持</a>（<font id="support_{$v[id]}">{$v[support]}</font>）</div>
+							    	<div id="reply_{$v[id]}" style="display:none"></div>
+								</div>
+						  	{/loop}
+						 {/pc}
+					</div>
+				{/loop}
+			{/pc}
+	        </ul>
+     	</div>
+	</div>
+{/if}
+	<div class="bk30"></div>
+</div>
+<?php $param = pc_base::load_sys_class('param');
+$userid = param::get_cookie('_userid');
+?>
+<div style="position:fixed;top:90px;left:0px; z-index:999;" id="yyf">
+  <div id="floatleft">
+    <div>
+      <div class="floatleft_l"> </div>
+      <dl>
+        <dt><a href="./">精装定制找三略</a></dt>
+        {php $j=1;}
+    	{pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+			{loop $data $r}
+	        	<dd class="jz_banner_a{$j}"><a href="{$r[url]}">看{$r[catname]}<br></dd>
+	    		{$j++}
+			{/loop}
+        {/pc}
+        <dt><a href="javascript:;;" id="fh">返回顶部</a></dt>
+      </dl>
+    </div>
+    <a href="javascript:;;" class="guanbi" id="fc">关闭</a> </div>
+</div>
+
+{php $dis_announce=0;}
+{pc:announce  action="lists" siteid="$siteid" num="5"}
+   {loop $data $r}
+   		{php $dis_announce=1;}
+   {/loop}
+{/pc}
+
+{if $dis_announce==1 }
+<div style="position:fixed;top:90px;right:0px; z-index:999;" id="ggf">
+	<div style="display:block; width:200px">
+	     <div style="display:block;">
+	     <dl>
+	     <dt><span style="display:block; height:24px; font-size:16px; align:center; padding-top:5px;background:#333333;color:#ffffff;text-align:center;">公司公告</span></dt>
+	        {pc:announce  action="lists" siteid="$siteid" num="5"}
+	           {php $k=1;}
+	           {loop $data $r}
+	             <dt><a href="{APP_PATH}index_announce_index_show.shtml?aid={$r['aid']}"><span class="jz_banner_a{$k}" style="display:block; height:24px; font-size:16px; align:center; padding-top:5px;color:#ffffff;"> {$r['title']}</span></a></dt>
+	           {$k++}
+	           {/loop}
+	        {/pc}
+	     </dl>
+	    </div>
+	</div>
+	
+    <a href="javascript:;;" class="guanbi" id="ggc" style="text-align:center;">关闭</a> </div>
+</div>
+{/if}
+<script type="text/javascript">
+function support(id, commentid) {
+	$.getJSON('{APP_PATH}index_comment_index_support.shtml?format=jsonp&commentid='+commentid+'&id='+id+'&callback=?', function(data){
+		if(data.status == 1) {
+			$('#support_'+id).html(parseInt($('#support_'+id).html())+1);
+		} else {
+			alert(data.msg);
+		}
+	});
+}
+
+function reply(id,commentid) {
+	var str = '<form action="{APP_PATH}index_comment_index_post.shtml?commentid='+commentid+'&id='+id+'" method="post"><textarea rows="10" style="width:100%" name="content"></textarea>{if $setting[code]}<label>验证码：<input type="text" name="code"  class="input-text" onfocus="var offset = $(this).offset();$(\'#yzm\').css({\'left\': +offset.left-8, \'top\': +offset.top-$(\'#yzm\').height()});$(\'#yzm\').show();$(\'#yzmText\').data(\'hide\', 1)" onblur=\'$("#yzmText").data("hide", 0);setTimeout("hide_code()", 3000)\' /></label>{/if}  <div class="btn"><input type="submit" value="发表评论" /></div>&nbsp;&nbsp;&nbsp;&nbsp;{if $userid}{get_nickname()} <a href="{APP_PATH}index_member_index_logout.shtml?forward={urlencode(get_url())}">退出</a>{else}<a href="{APP_PATH}index_member_index_login.shtml?forward={urlencode(get_url())}" class="blue">登录</a> | <a href="{APP_PATH}index.php_member_index_register.shtml" class="blue">注册</a>  {if !$setting[guest]}<span style="color:red">需要登陆才可发布评论</span>{/if}{/if}</form>';
+	$('#reply_'+id).html(str).toggle();
+}
+
+function hide_code() {
+	if ($('#yzmText').data('hide')==0) {
+		$('#yzm').hide();
+	}
+}
+
+   $( document ).ready(function () {
+       var menu_num = {$j} + 1;
+       $(".floatleft_l").height(menu_num*40);
+       $("#floatleft dl").height(menu_num*45);
+   });
+   
+</script>
+{template "content","footer"}
