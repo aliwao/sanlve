@@ -15,20 +15,23 @@
 <body>
 <!--main-->
 <div id="header">
-	<div style="text-align:center;margin-top:80px;">
-		<img src="./statics/images/sl/logo.png" style="width:250px;height:120px;" />
-		<div class="search" style="width:100%;text-align:center;">
-			<div class="bd" style="width:100%;text-align:center;">
+	<div class="main-search">
+		<img class="logo" src="./statics/images/sl/logo.png" />
+		<div class="search searchdiv">
+			<div class="bd-text-center-100">
 				<form action="./index.php" method="get" target="_blank">
 					<input type="hidden" name="m" value="search" />
 					<input type="hidden" name="c" value="index" />
 					<input type="hidden" name="a" value="init" />
 					<input type="hidden" name="typeid" value="" id="typeid" />
 					<input type="hidden" name="siteid" value="1" id="siteid" />
-					<input type="text" class="text" placeholder="定制您的需要..." name="q" id="q" style="width:480px;height:28px;" /><input type="submit" value="搜 索" class="button" style="cursor: pointer;margin-left:0px;height:36px;width:5em;background-color: #38f;font-size: 16px;color: white;box-shadow: none;font-weight: normal;" />
+					<input type="text" class="text" placeholder="定制您的需要..." name="q" id="q" /><input type="submit" value="搜 索" class="button sl-search-btn" />
 				</form>
 			</div>
-			<div style="height: 85px;"><span style="float: none;margin: 0 auto;"><strong style="font-size:22px;">服务热线： 025-59927781</strong></span></div>
+			<div style="clear:both;"></div>
+			<div class="index-hotnumber">
+				<p>服务热线：&nbsp;&nbsp; 025-59927781</p>
+			</div>
 		</div>
 	</div>
 </div>
@@ -39,47 +42,87 @@
 			<dt class="sppitemwrap">
 				<a class="appitem" href="./">首页</a>
 			</dt>
-			<dd class="sppitemwrap">
-				<a class="appitem" href="./">精装定制</a>
-				<dl>
-					<dd><a href="#">最新更新11</a></li>
-					<dd><a href="#">下载排行11</a></li>
-				</dl>
-			</dd>
-			<dd class="sppitemwrap">
-				<a class="appitem" href="./">找三略</a>
-				<dl>
-					<dd><a href="#">最新更新22</a></li>
-					<dd><a href="#">下载排行22</a></li>
-				</dl>
-			</dd>
-			<dt class="sppitemwrap nav-bl">
-				<a class="appitem" href="./" title="向左收起">向左收起</a>
+															<dd class="sppitemwrap">
+						<a class="appitem" href="http://www.sanlve.com.cn/list-13-1.html">住宅</a>
+						<dl>
+							<dd><a href="#">测试一1</a></li>
+							<dd><a href="#">测试二1</a></li>
+						</dl>
+					</dd>
+														<dd class="sppitemwrap">
+						<a class="appitem" href="http://www.sanlve.com.cn/list-14-1.html">办公</a>
+						<dl>
+							<dd><a href="#">测试一2</a></li>
+							<dd><a href="#">测试二2</a></li>
+						</dl>
+					</dd>
+														<dd class="sppitemwrap">
+						<a class="appitem" href="http://www.sanlve.com.cn/list-15-1.html">酒店式公寓</a>
+						<dl>
+							<dd><a href="#">测试一3</a></li>
+							<dd><a href="#">测试二3</a></li>
+						</dl>
+					</dd>
+														<dd class="sppitemwrap">
+						<a class="appitem" href="http://www.sanlve.com.cn/list-16-1.html">商业</a>
+						<dl>
+							<dd><a href="#">测试一4</a></li>
+							<dd><a href="#">测试二4</a></li>
+						</dl>
+					</dd>
+														<dd class="sppitemwrap">
+						<a class="appitem" href="http://www.sanlve.com.cn/list-68-1.html">建材展厅</a>
+						<dl>
+							<dd><a href="#">测试一5</a></li>
+							<dd><a href="#">测试二5</a></li>
+						</dl>
+					</dd>
+														<dd class="sppitemwrap">
+						<a class="appitem" href="http://www.sanlve.com.cn/list-64-1.html">专家团</a>
+						<dl>
+							<dd><a href="#">测试一6</a></li>
+							<dd><a href="#">测试二6</a></li>
+						</dl>
+					</dd>
+														<dd class="sppitemwrap">
+						<a class="appitem" href="http://www.sanlve.com.cn/list-72-1.html">精装管家</a>
+						<dl>
+							<dd><a href="#">测试一7</a></li>
+							<dd><a href="#">测试二7</a></li>
+						</dl>
+					</dd>
+														<dd class="sppitemwrap">
+						<a class="appitem" href="http://www.sanlve.com.cn/list-1-1.html">公司介绍</a>
+						<dl>
+							<dd><a href="#">测试一8</a></li>
+							<dd><a href="#">测试二8</a></li>
+						</dl>
+					</dd>
+															<dt class="sppitemwrap nav-bl">
+				<a class="appitem" id="hideLeftMenu" href="javascript:void(0);" title="向左收起" onclick="hideIndexLeftMenu();">向左收起</a>
 			</dt>
 		</dl>
 	</div>
+	<a href="javascript:void(0);" id="showLeftMenu" class="slidetoolbar-closebtn slideclosebtn-open" title="展开" onclick="showIndexLeftMenu();"></a>
 </div>
-<div style="position:fixed;top:90px;left:0px; z-index:999;" id="yyf">
-  <div id="floatleft">
-    <div>
-      <div class="floatleft_l"> </div>
-      <dl>
-        <dt><a href="./">精装定制找三略</a></dt>
-            					        	<dd class="jz_banner_a1"><a href="http://www.sanlve.com.cn/list-13-1.html">看住宅<br></dd>
-	    						        	<dd class="jz_banner_a2"><a href="http://www.sanlve.com.cn/list-14-1.html">看办公<br></dd>
-	    						        	<dd class="jz_banner_a3"><a href="http://www.sanlve.com.cn/list-15-1.html">看酒店式公寓<br></dd>
-	    						        	<dd class="jz_banner_a4"><a href="http://www.sanlve.com.cn/list-16-1.html">看商业<br></dd>
-	    						        	<dd class="jz_banner_a5"><a href="http://www.sanlve.com.cn/list-68-1.html">看建材展厅<br></dd>
-	    						        	<dd class="jz_banner_a6"><a href="http://www.sanlve.com.cn/list-64-1.html">看专家团<br></dd>
-	    						        	<dd class="jz_banner_a7"><a href="http://www.sanlve.com.cn/list-72-1.html">看精装管家<br></dd>
-	    						        	<dd class="jz_banner_a8"><a href="http://www.sanlve.com.cn/list-1-1.html">看公司介绍<br></dd>
-	    					                <dt><a href="javascript:;;" id="fh">返回顶部</a></dt>
-      </dl>
-    </div>
-    <a href="javascript:;;" class="guanbi" id="fc">关闭</a> </div>
+<div class="rsidebar_list">
+	<ul class="list_right">
+		<li class="first-child"><span>联系客服</span>
+			<div class="kefulay" id="kefulay">
+				<p class="zx-btn">
+					<a href="http://wpa.b.qq.com" target="_blank">QQ在线咨询</a>
+				</p>
+				<p class="line"></p>
+				<p class="hotline"><strong>咨询热线:</strong></p>
+				<p class="hotlinenumber">025-59927781</p>
+			</div>
+		</li>
+		<li><span>家装预约</span></li>
+		<li><span>一键报价</span></li>
+		<li id="back-to-top" class="backtop last-child"></li>
+	</ul>
 </div>
 
-   
 <script type="text/javascript">
 function support(id, commentid) {
 	$.getJSON('http://localhost:8090/sl/index_comment_index_support.shtml?format=jsonp&commentid='+commentid+'&id='+id+'&callback=?', function(data){
@@ -102,14 +145,52 @@ function hide_code() {
 	}
 }
 
+function hideIndexLeftMenu() {
+	$("#slidetoolbarContainer > .slidetoolbar").hide();
+	$("#showLeftMenu").show();
+}
+
+function showIndexLeftMenu() {
+	$("#showLeftMenu").hide();
+	$("#slidetoolbarContainer > .slidetoolbar").show();
+}
+
+$(function(){  
+    //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失  
+    $(function () {  
+        $(window).scroll(function(){  
+            if ($(window).scrollTop()>100){  
+                $("#back-to-top").fadeIn(1500);  
+            }
+            else  
+            {
+                $("#back-to-top").fadeOut(1500);  
+            }
+        });  
+
+        //当点击跳转链接后，回到页面顶部位置  
+        $("#back-to-top").click(function(){
+            if ($('html').scrollTop()) {  
+                $('html').animate({ scrollTop: 0 }, 1000);
+                return false;  
+            }  
+            $('body').animate({ scrollTop: 0 }, 1000);
+            return false;
+        });
+    });
+});  
+
    $(document).ready(function () {
        var menu_num = $('dl.applist').children('dd').length + 1;
        $(".floatleft_l").height(menu_num*35);
+
+       var btntop = $("#hideLeftMenu").offset().top;
+       $("#showLeftMenu").css("top", btntop);
    });
    
 </script>
 
-<div id="footer" style="position:absolute;bottom:0px;z-index:999;">
+<div id="footer" style="position:fixed;bottom:0px;z-index:99;">
   <div id="footer_i">
     <div class="footer_l">
     </div>
@@ -123,12 +204,3 @@ function hide_code() {
     </div>
   </div>
 </div>
-<script type="text/javascript">
-if ($(window).width() > 980) {$('#yyf').show();}
-$('#fc').bind("click",function(){ $('#yyf').hide();});
-$("#fh").bind("click",function(){$('body,html').animate({scrollTop:0},1000); return false; })
-
-if ($(window).width() > 980) {$('#ggf').show();}
-$('#ggc').bind("click",function(){ $('#ggf').hide();});
-
-</script>

@@ -15,23 +15,29 @@
 <body>
 <!--main-->
 <div id="header">
-	<div style="text-align:center;margin-top:80px;">
-		<img src="./statics/images/sl/logo.png" style="width:250px;height:120px;" />
-		<div class="search" style="width:100%;text-align:center;">
-			<div class="bd" style="width:100%;text-align:center;">
+	<div class="main-search">
+		<img class="logo" src="./statics/images/sl/logo.png" />
+		<div class="search searchdiv">
+			<div class="bd-text-center-100">
 				<form action="./index.php" method="get" target="_blank">
 					<input type="hidden" name="m" value="search" />
 					<input type="hidden" name="c" value="index" />
 					<input type="hidden" name="a" value="init" />
 					<input type="hidden" name="typeid" value="" id="typeid" />
 					<input type="hidden" name="siteid" value="1" id="siteid" />
-					<input type="text" class="text" placeholder="定制您的需要..." name="q" id="q" style="width:480px;height:28px;" /><input type="submit" value="搜 索" class="button" style="cursor: pointer;margin-left:0px;height:36px;width:5em;background-color: #38f;font-size: 16px;color: white;box-shadow: none;font-weight: normal;" />
+					<input type="text" class="text" placeholder="定制您的需要..." name="q" id="q" /><input type="submit" value="搜 索" class="button sl-search-btn" />
 				</form>
 			</div>
-			<div style="height: 85px;"><span style="float: none;margin: 0 auto;"><strong style="font-size:22px;">服务热线： 025-59927781</strong></span></div>
+			<div style="clear:both;"></div>
+			<div class="index-hotnumber">
+				<p>服务热线：&nbsp;&nbsp; 025-59927781</p>
+			</div>
 		</div>
 	</div>
 </div>
+<?php $param = pc_base::load_sys_class('param');
+$userid = param::get_cookie('_userid');
+?>
 <div id="slidetoolbarContainer" class="slidetoolbarContainer">
 	<div class="slidetoolbar">
 		<div class="floatleft_l"></div>
@@ -39,75 +45,44 @@
 			<dt class="sppitemwrap">
 				<a class="appitem" href="./">首页</a>
 			</dt>
-			<dd class="sppitemwrap">
-				<a class="appitem" href="./">精装定制</a>
-				<dl>
-					<dd><a href="#">最新更新11</a></li>
-					<dd><a href="#">下载排行11</a></li>
-				</dl>
-			</dd>
-			<dd class="sppitemwrap">
-				<a class="appitem" href="./">找三略</a>
-				<dl>
-					<dd><a href="#">最新更新22</a></li>
-					<dd><a href="#">下载排行22</a></li>
-				</dl>
-			</dd>
+			<?php $j=1;?>
+			<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=b43f1459ac702900c8d44c91a5e796dd&action=category&catid=0&num=25&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'0','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'25',));}?>
+				<?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
+					<dd class="sppitemwrap">
+						<a class="appitem" href="<?php echo $r['url'];?>"><?php echo $r['catname'];?></a>
+						<dl>
+							<dd><a href="#">测试一<?php echo $j;?></a></li>
+							<dd><a href="#">测试二<?php echo $j;?></a></li>
+						</dl>
+					</dd>
+					<?php $j++; ?>
+				<?php $n++;}unset($n); ?>
+			<?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
 			<dt class="sppitemwrap nav-bl">
-				<a class="appitem" href="./" title="向左收起">向左收起</a>
+				<a class="appitem" id="hideLeftMenu" href="javascript:void(0);" title="向左收起" onclick="hideIndexLeftMenu();">向左收起</a>
 			</dt>
 		</dl>
 	</div>
+	<a href="javascript:void(0);" id="showLeftMenu" class="slidetoolbar-closebtn slideclosebtn-open" title="展开" onclick="showIndexLeftMenu();"></a>
 </div>
-<?php $param = pc_base::load_sys_class('param');
-$userid = param::get_cookie('_userid');
-?>
-<div style="position:fixed;top:90px;left:0px; z-index:999;" id="yyf">
-  <div id="floatleft">
-    <div>
-      <div class="floatleft_l"> </div>
-      <dl>
-        <dt><a href="./">精装定制找三略</a></dt>
-        <?php $j=1;?>
-    	<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=b43f1459ac702900c8d44c91a5e796dd&action=category&catid=0&num=25&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'0','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'25',));}?>
-			<?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
-	        	<dd class="jz_banner_a<?php echo $j;?>"><a href="<?php echo $r['url'];?>">看<?php echo $r['catname'];?><br></dd>
-	    		<?php $j++; ?>
-			<?php $n++;}unset($n); ?>
-        <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
-        <dt><a href="javascript:;;" id="fh">返回顶部</a></dt>
-      </dl>
-    </div>
-    <a href="javascript:;;" class="guanbi" id="fc">关闭</a> </div>
+<div class="rsidebar_list">
+	<ul class="list_right">
+		<li class="first-child"><span>联系客服</span>
+			<div class="kefulay" id="kefulay">
+				<p class="zx-btn">
+					<a href="http://wpa.b.qq.com" target="_blank">QQ在线咨询</a>
+				</p>
+				<p class="line"></p>
+				<p class="hotline"><strong>咨询热线:</strong></p>
+				<p class="hotlinenumber">025-59927781</p>
+			</div>
+		</li>
+		<li><span>家装预约</span></li>
+		<li><span>一键报价</span></li>
+		<li id="back-to-top" class="backtop last-child" style="display:none;"></li>
+	</ul>
 </div>
 
-<?php $dis_announce=0;?>
-<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"announce\" data=\"op=announce&tag_md5=b79fc9110a09c6680d3768c9c06f8518&action=lists&siteid=%24siteid&num=5\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$announce_tag = pc_base::load_app_class("announce_tag", "announce");if (method_exists($announce_tag, 'lists')) {$data = $announce_tag->lists(array('siteid'=>$siteid,'limit'=>'5',));}?>
-   <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
-   		<?php $dis_announce=1;?>
-   <?php $n++;}unset($n); ?>
-<?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
-
-<?php if($dis_announce==1 ) { ?>
-<div style="position:fixed;top:90px;right:0px; z-index:999;" id="ggf">
-	<div style="display:block; width:200px">
-	     <div style="display:block;">
-	     <dl>
-	     <dt><span style="display:block; height:24px; font-size:16px; align:center; padding-top:5px;background:#333333;color:#ffffff;text-align:center;">公司公告</span></dt>
-	        <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"announce\" data=\"op=announce&tag_md5=b79fc9110a09c6680d3768c9c06f8518&action=lists&siteid=%24siteid&num=5\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$announce_tag = pc_base::load_app_class("announce_tag", "announce");if (method_exists($announce_tag, 'lists')) {$data = $announce_tag->lists(array('siteid'=>$siteid,'limit'=>'5',));}?>
-	           <?php $k=1;?>
-	           <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
-	             <dt><a href="<?php echo APP_PATH;?>index_announce_index_show.shtml?aid=<?php echo $r['aid'];?>"><span class="jz_banner_a<?php echo $k;?>" style="display:block; height:24px; font-size:16px; align:center; padding-top:5px;color:#ffffff;"> <?php echo $r['title'];?></span></a></dt>
-	           <?php $k++; ?>
-	           <?php $n++;}unset($n); ?>
-	        <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
-	     </dl>
-	    </div>
-	</div>
-	
-    <a href="javascript:;;" class="guanbi" id="ggc" style="text-align:center;">关闭</a> </div>
-</div>
-<?php } ?>
 <script type="text/javascript">
 function support(id, commentid) {
 	$.getJSON('<?php echo APP_PATH;?>index_comment_index_support.shtml?format=jsonp&commentid='+commentid+'&id='+id+'&callback=?', function(data){
@@ -130,14 +105,52 @@ function hide_code() {
 	}
 }
 
+function hideIndexLeftMenu() {
+	$("#slidetoolbarContainer > .slidetoolbar").hide();
+	$("#showLeftMenu").show();
+}
+
+function showIndexLeftMenu() {
+	$("#showLeftMenu").hide();
+	$("#slidetoolbarContainer > .slidetoolbar").show();
+}
+
+$(function(){  
+    //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失  
+    $(function () {  
+        $(window).scroll(function(){  
+            if ($(window).scrollTop()>100){  
+                $("#back-to-top").fadeIn(1500);  
+            }
+            else  
+            {
+                $("#back-to-top").fadeOut(1500);  
+            }
+        });  
+
+        //当点击跳转链接后，回到页面顶部位置  
+        $("#back-to-top").click(function(){
+            if ($('html').scrollTop()) {  
+                $('html').animate({ scrollTop: 0 }, 1000);
+                return false;  
+            }  
+            $('body').animate({ scrollTop: 0 }, 1000);
+            return false;
+        });
+    });
+});  
+
    $(document).ready(function () {
        var menu_num = $('dl.applist').children('dd').length + 1;
        $(".floatleft_l").height(menu_num*35);
+
+       var btntop = $("#hideLeftMenu").offset().top;
+       $("#showLeftMenu").css("top", btntop);
    });
    
 </script>
 
-<div id="footer" style="position:absolute;bottom:0px;z-index:999;">
+<div id="footer" style="position:fixed;bottom:0px;z-index:99;">
   <div id="footer_i">
     <div class="footer_l">
     </div>
@@ -151,12 +164,3 @@ function hide_code() {
     </div>
   </div>
 </div>
-<script type="text/javascript">
-if ($(window).width() > 980) {$('#yyf').show();}
-$('#fc').bind("click",function(){ $('#yyf').hide();});
-$("#fh").bind("click",function(){$('body,html').animate({scrollTop:0},1000); return false; })
-
-if ($(window).width() > 980) {$('#ggf').show();}
-$('#ggc').bind("click",function(){ $('#ggf').hide();});
-
-</script>
