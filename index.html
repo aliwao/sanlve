@@ -8,30 +8,62 @@
 <meta name="description" content="三略批量定制精装">
 <link href="http://localhost:8090/sl/statics/css/reset.css" rel="stylesheet" type="text/css" />
 <link href="http://localhost:8090/sl/statics/css/main.css" rel="stylesheet" type="text/css" />
-<link href="http://localhost:8090/sl/statics/css/extends.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:8090/sl/statics/css/sl-extends.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="http://localhost:8090/sl/statics/js/jquery.min.js"></script>
 <script type="text/javascript" src="http://localhost:8090/sl/statics/js/jquery.sgallery.js"></script>
+<script type="text/javascript">
+function Trim(str){ //删除左右两端的空格
+return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+function checkSearch()
+{
+	var keyboard = Trim($("#q").val());
+	 
+	if (keyboard=='')
+	{
+		alert("搜索关键词不能为空...");
+		return false;
+	}
+	return true;
+}
+</script>
 </head>
 <body>
 <!--main-->
 <div id="header">
 	<div class="main-search">
-		<img class="logo" src="./statics/images/sl/logo.png" />
-		<div class="search searchdiv">
-			<div class="bd-text-center-100">
-				<form action="./index.php" method="get" target="_blank">
-					<input type="hidden" name="m" value="search" />
-					<input type="hidden" name="c" value="index" />
-					<input type="hidden" name="a" value="init" />
-					<input type="hidden" name="typeid" value="" id="typeid" />
-					<input type="hidden" name="siteid" value="1" id="siteid" />
-					<input type="text" class="text" placeholder="定制您的需要..." name="q" id="q" /><input type="submit" value="搜 索" class="button sl-search-btn" />
-				</form>
-			</div>
-			<div style="clear:both;"></div>
-			<div class="index-hotnumber">
-				<p>服务热线：&nbsp;&nbsp; 025-59927781</p>
-			</div>
+		<div class="wh549 martop-150">
+			<img class="logo" src="./statics/images/sl/logo.png" />
+	        <div class="search">
+	            <form action="http://localhost:8090/sl/index.php" method="get" onsubmit="return checkSearch();">
+	                <!-- <div class="select_box">
+	                    <div class="select_showbox">全部</div>
+	                    <ul class="select_option">
+	                        <li class="selected">全部</li>
+	                        <li>设计师</li>
+	                        <li>建材</li>
+	                        <li>楼盘</li>
+	                        <li>装修百科</li>
+	                    </ul>
+	                </div> -->
+	                <select name="classid" id="classid">
+	                    <option value="0">全部</option>
+	                    <option value="1">住宅</option>
+	                    <option value="2">公寓</option>
+	                    <option value="3">办公</option>
+	                    <option value="4">软装</option>
+	                </select>
+	                <input class="inp_srh"  name="q" id="q" value="" placeholder="请输入搜索关键字">
+	                <input class="btn_srh" name="submit" type="submit" value="">
+	                <input type="hidden" name="m" value="search"/>
+	                <input type="hidden" name="c" value="index"/>
+	                <input type="hidden" name="a" value="init"/>
+	                <input type="hidden" name="typeid" value="" id="typeid"/>
+	                <input type="hidden" name="siteid" value="1" id="siteid"/>
+	            </form>
+	            <script type="text/javascript" src="http://localhost:8090/sl/statics/js/jquery.select.js"></script>
+	        </div>
+            <img class="call-index" src="./statics/images/sl/call-index.png" />
 		</div>
 	</div>
 </div>
@@ -43,59 +75,52 @@
 				<a class="appitem" href="./">首页</a>
 			</dt>
 															<dd class="sppitemwrap">
-						<a class="appitem" href="http://www.sanlve.com.cn/list-13-1.html">住宅</a>
+						<a class="appitem" href="http://localhost:8090/sl/list-1-1.html">公司介绍</a>
 						<dl>
 							<dd><a href="#">测试一1</a></li>
 							<dd><a href="#">测试二1</a></li>
 						</dl>
 					</dd>
 														<dd class="sppitemwrap">
-						<a class="appitem" href="http://www.sanlve.com.cn/list-14-1.html">办公</a>
+						<a class="appitem" href="http://localhost:8090/sl/list-13-1.html">定制住宅</a>
 						<dl>
 							<dd><a href="#">测试一2</a></li>
 							<dd><a href="#">测试二2</a></li>
 						</dl>
 					</dd>
 														<dd class="sppitemwrap">
-						<a class="appitem" href="http://www.sanlve.com.cn/list-15-1.html">酒店式公寓</a>
+						<a class="appitem" href="http://localhost:8090/sl/list-15-1.html">定制公寓</a>
 						<dl>
 							<dd><a href="#">测试一3</a></li>
 							<dd><a href="#">测试二3</a></li>
 						</dl>
 					</dd>
 														<dd class="sppitemwrap">
-						<a class="appitem" href="http://www.sanlve.com.cn/list-16-1.html">商业</a>
+						<a class="appitem" href="http://localhost:8090/sl/list-14-1.html">定制办公</a>
 						<dl>
 							<dd><a href="#">测试一4</a></li>
 							<dd><a href="#">测试二4</a></li>
 						</dl>
 					</dd>
 														<dd class="sppitemwrap">
-						<a class="appitem" href="http://www.sanlve.com.cn/list-68-1.html">建材展厅</a>
+						<a class="appitem" href="http://localhost:8090/sl/list-16-1.html">定制软装</a>
 						<dl>
 							<dd><a href="#">测试一5</a></li>
 							<dd><a href="#">测试二5</a></li>
 						</dl>
 					</dd>
 														<dd class="sppitemwrap">
-						<a class="appitem" href="http://www.sanlve.com.cn/list-64-1.html">专家团</a>
+						<a class="appitem" href="http://localhost:8090/sl/list-68-1.html">品牌屋</a>
 						<dl>
 							<dd><a href="#">测试一6</a></li>
 							<dd><a href="#">测试二6</a></li>
 						</dl>
 					</dd>
 														<dd class="sppitemwrap">
-						<a class="appitem" href="http://www.sanlve.com.cn/list-72-1.html">精装管家</a>
+						<a class="appitem" href="http://localhost:8090/sl/list-64-1.html">专家库</a>
 						<dl>
 							<dd><a href="#">测试一7</a></li>
 							<dd><a href="#">测试二7</a></li>
-						</dl>
-					</dd>
-														<dd class="sppitemwrap">
-						<a class="appitem" href="http://www.sanlve.com.cn/list-1-1.html">公司介绍</a>
-						<dl>
-							<dd><a href="#">测试一8</a></li>
-							<dd><a href="#">测试二8</a></li>
 						</dl>
 					</dd>
 															<dt class="sppitemwrap nav-bl">
@@ -107,19 +132,23 @@
 </div>
 <div class="rsidebar_list">
 	<ul class="list_right">
-		<li class="first-child"><span>联系客服</span>
+		<li class="first-child icon-live"><span>联系客服</span>
 			<div class="kefulay" id="kefulay">
 				<p class="zx-btn">
 					<a href="http://wpa.b.qq.com" target="_blank">QQ在线咨询</a>
 				</p>
 				<p class="line"></p>
-				<p class="hotline"><strong>咨询热线:</strong></p>
-				<p class="hotlinenumber">025-59927781</p>
+				<p class="hotline"><strong>微信公众号咨询:</strong></p>
+				<p class="wxQrcode"></p>
 			</div>
 		</li>
-		<li><span>家装预约</span></li>
-		<li><span>一键报价</span></li>
-		<li id="back-to-top" class="backtop last-child"></li>
+		<li class="icon-call"><span>电话咨询</span>
+			<div class="calllay" id="calllay">
+				<p><strong style="color:#000;padding-left:10px;">咨询热线:</strong></p>
+				<p class="hotline"><span style="font-size:16px;padding-left:25px;">025-59927781</span></p>
+			</div>
+		</li>
+		<li id="back-to-top" class="backtop last-child" style="display:none;"></li>
 	</ul>
 </div>
 
@@ -135,7 +164,7 @@ function support(id, commentid) {
 }
 
 function reply(id,commentid) {
-	var str = '<form action="http://localhost:8090/sl/index_comment_index_post.shtml?commentid='+commentid+'&id='+id+'" method="post"><textarea rows="10" style="width:100%" name="content"></textarea>  <div class="btn"><input type="submit" value="发表评论" /></div>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:8090/sl/index_member_index_login.shtml?forward=http%3A%2F%2Flocalhost%3A8090%2Fsl%2Findex.php%3Fm%3Dcontent%26c%3Dcreate_html%26a%3Dpublic_index%26pc_hash%3DOEOC0v" class="blue">登录</a> | <a href="http://localhost:8090/sl/index.php_member_index_register.shtml" class="blue">注册</a>  <span style="color:red">需要登陆才可发布评论</span></form>';
+	var str = '<form action="http://localhost:8090/sl/index_comment_index_post.shtml?commentid='+commentid+'&id='+id+'" method="post"><textarea rows="10" style="width:100%" name="content"></textarea>  <div class="btn"><input type="submit" value="发表评论" /></div>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost:8090/sl/index_member_index_login.shtml?forward=http%3A%2F%2Flocalhost%3A8090%2Fsl%2Findex.php%3Fm%3Dcontent%26c%3Dcreate_html%26a%3Dpublic_index%26pc_hash%3DLp5kF1" class="blue">登录</a> | <a href="http://localhost:8090/sl/index.php_member_index_register.shtml" class="blue">注册</a>  <span style="color:red">需要登陆才可发布评论</span></form>';
 	$('#reply_'+id).html(str).toggle();
 }
 

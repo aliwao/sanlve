@@ -1,9 +1,16 @@
 eclipse.preferences.version=1
 encoding//contents/templates/default/announce/show.html=UTF-8
+encoding//contents/templates/default/content/category.html=UTF-8
 encoding//contents/templates/default/content/footer.html=UTF-8
 encoding//contents/templates/default/content/index.html=UTF-8
+encoding//contents/templates/default/content/list.html=UTF-8
+encoding//contents/templates/default/content/list_picture.html=UTF-8
+encoding//contents/templates/default/content/page.html=UTF-8
+encoding//contents/templates/default/content/show.html=UTF-8
+encoding//contents/templates/default/content/tag_list.html=UTF-8
 encoding//statics/css/extends.css=UTF-8
 encoding//statics/css/main.css=UTF-8
 encoding//statics/css/reset.css=UTF-8
 encoding//statics/css/sanlve/style.css=UTF-8
+encoding//statics/css/sl-extends.css=UTF-8
 encoding/<project>=UTF-8

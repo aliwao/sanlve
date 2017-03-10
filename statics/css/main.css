@@ -40,10 +40,6 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 .header{padding:10px 7px;background-position: left -142px}
 .header .logo{float:left;background-position: right -10px;background-repeat: no-repeat; padding:0 20px 0 10px; height:70px; text-align:center;*font-size:40px;}
 .header .logo a{display:table-cell;vertical-align:middle;text-align:center;*display:block; height:70px; float:left}
-#header .search{width:420px;height:55px}
-#header .search .bd{padding:5px; float:left;}
-#header .search .text{border:1px solid #e5e5e7;padding:4px 0 3px 40px; height:18px;width:180px;background:#fff url(../images/sl/search-g.png) no-repeat;background-size:40px 36px;}
-#header .search .button{ background:#333; border:none; color:#fff; height:1.9em;margin-left:3px;width:4.2em; margin-left:6px;vertical-align:middle; text-align:center}
 #header .banner{ overflow:hidden;zoom:1;_float:right; text-align:right;	}
 .header_t .logo{float:left;background-position: right -10px;background-repeat: no-repeat; padding:0 0px 0 0px; height:70px; text-align:center;*font-size:40px;}
 .header_t .logo a{display:table-cell;vertical-align:middle;text-align:center;*display:block; height:70px; float:left}

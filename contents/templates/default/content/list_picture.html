@@ -1,22 +1,63 @@
-{template "content","header"}
-<!--main-->
-<div class="main photo-channel">
-<div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> > {catpos($catid)}</div>
-<div class="bk10"></div>
-	{pc:content action="lists" catid="$catid" num="10" order="id DESC" page="$page"}
-		<div id="pages" class="text-c">{$pages}</div>
-		<ul class="photo-list picbig">
-			{loop $data $r}
-			<li class="title-case">
-			<div class="img-wrap-case">
-			<a href="{$r[url]}"><img src="{thumb($r[thumb],300,224)}" width="300" height="224" alt="{$r[title]}"/></a>
-			</div>
-			<span style="color:{$r[style]}" nowrap="nowrap">{str_cut($r[title],60)}{if $r[money]} (单价：{$r[money]} 元){/if}</span>
-			</li>
-			{/loop}
-		</ul>
-		<div id="pages" class="text-c">{$pages}</div>
-	{/pc}
+{template "content","header_page"}
+<div class="container">
+    <div class="wh1200">
+        <div class="pagenav"><a href="{siteurl($siteid)}">首页</a> &gt; {catpos($catid)}<span> 列表</span></div>
+        {pc:content action="lists" catid="$catid" num="12" order="id DESC" page="$page"}
+        <div class="list-head">
+            <span class="fr">共<b class="bluetext">{$content_total}</b>个作品</span>
+            <ul>
+                <li><a href="#" class="cur">默认排序</a></li>
+            </ul>
+        </div>
+        <div class="piclist-con">
+            <ul>
+                {loop $data $r}
+                <li>
+                    <table width="100%" border="0"><tbody>
+                        <tr>
+                            <td colspan="3" class="pic">
+                                <a href="{$r[url]}" title="{$r[title]}">
+                                    <img src="{thumb($r[thumb],300,224)}" width="378" height="250" />
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            {php $hists_db = pc_base::load_model('hits_model'); $_r = $hists_db->get_one(array('hitsid'=>'c-'.$modelid.'-'.$r[id])); $views = $_r[views]; }
+                            <td colspan="2" class="picname"><strong><a href="{$r[url]}">{str_cut($r[title],60)}</a></strong></td>
+                            <td colspan="1" class="pichits graytext">浏览 {$views}</td>
+                        </tr>
+                    </tbody></table>
+                </li>
+                <li class="w30"></li>
+                {/loop}
+            </ul>
+        </div>
+        <div id="pages" class="page">{$pages}</div>
+        <div id="pages" class="text-c">
+            <a class="a1">20条</a> 
+            <a href="index.php?m=content&amp;c=index&amp;a=lists&amp;catid=17" class="a1">上一页</a> 
+            <a href="index.php?m=content&amp;c=index&amp;a=lists&amp;catid=17">1</a> <span>2</span> 
+            <a href="index.php?m=content&amp;c=index&amp;a=lists&amp;catid=17&amp;page=2" class="a1">下一页</a>
+        </div>
+        <div class="page">
+            <div>
+                <a class="first" href="/Words-index-p-1/">首页</a> 
+                <a class="prev" href="/Words-index-p-5/">&lt;</a> 
+                <a class="num" href="/Words-index-p-2/">2</a>
+                <a class="num" href="/Words-index-p-3/">3</a>
+                <a class="num" href="/Words-index-p-4/">4</a>
+                <a class="num" href="/Words-index-p-5/">5</a><span class="current">6</span>
+                <a class="num" href="/Words-index-p-7/">7</a>
+                <a class="num" href="/Words-index-p-8/">8</a>
+                <a class="num" href="/Words-index-p-9/">9</a>
+                <a class="num" href="/Words-index-p-10/">10</a>
+                <a class="num" href="/Words-index-p-11/">11</a> 
+                <a class="next" href="/Words-index-p-7/">&gt;</a> 
+                <a class="end" href="/Words-index-p-54/">尾页</a>
+             </div>
+        </div>
+        {/pc}
     </div>
 </div>
+
 {template "content","footer"}

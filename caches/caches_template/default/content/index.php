@@ -8,30 +8,62 @@
 <meta name="description" content="<?php echo $SEO['description'];?>">
 <link href="<?php echo CSS_PATH;?>reset.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo CSS_PATH;?>main.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo CSS_PATH;?>extends.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo CSS_PATH;?>sl-extends.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<?php echo JS_PATH;?>jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo JS_PATH;?>jquery.sgallery.js"></script>
+<script type="text/javascript">
+function Trim(str){ //删除左右两端的空格
+return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+function checkSearch()
+{
+	var keyboard = Trim($("#q").val());
+	 
+	if (keyboard=='')
+	{
+		alert("搜索关键词不能为空...");
+		return false;
+	}
+	return true;
+}
+</script>
 </head>
 <body>
 <!--main-->
 <div id="header">
 	<div class="main-search">
-		<img class="logo" src="./statics/images/sl/logo.png" />
-		<div class="search searchdiv">
-			<div class="bd-text-center-100">
-				<form action="./index.php" method="get" target="_blank">
-					<input type="hidden" name="m" value="search" />
-					<input type="hidden" name="c" value="index" />
-					<input type="hidden" name="a" value="init" />
-					<input type="hidden" name="typeid" value="" id="typeid" />
-					<input type="hidden" name="siteid" value="1" id="siteid" />
-					<input type="text" class="text" placeholder="定制您的需要..." name="q" id="q" /><input type="submit" value="搜 索" class="button sl-search-btn" />
-				</form>
-			</div>
-			<div style="clear:both;"></div>
-			<div class="index-hotnumber">
-				<p>服务热线：&nbsp;&nbsp; 025-59927781</p>
-			</div>
+		<div class="wh549 martop-150">
+			<img class="logo" src="./statics/images/sl/logo.png" />
+	        <div class="search">
+	            <form action="<?php echo APP_PATH;?>index.php" method="get" onsubmit="return checkSearch();">
+	                <!-- <div class="select_box">
+	                    <div class="select_showbox">全部</div>
+	                    <ul class="select_option">
+	                        <li class="selected">全部</li>
+	                        <li>设计师</li>
+	                        <li>建材</li>
+	                        <li>楼盘</li>
+	                        <li>装修百科</li>
+	                    </ul>
+	                </div> -->
+	                <select name="classid" id="classid">
+	                    <option value="0">全部</option>
+	                    <option value="1">住宅</option>
+	                    <option value="2">公寓</option>
+	                    <option value="3">办公</option>
+	                    <option value="4">软装</option>
+	                </select>
+	                <input class="inp_srh"  name="q" id="q" value="" placeholder="请输入搜索关键字">
+	                <input class="btn_srh" name="submit" type="submit" value="">
+	                <input type="hidden" name="m" value="search"/>
+	                <input type="hidden" name="c" value="index"/>
+	                <input type="hidden" name="a" value="init"/>
+	                <input type="hidden" name="typeid" value="<?php echo $typeid;?>" id="typeid"/>
+	                <input type="hidden" name="siteid" value="<?php echo $siteid;?>" id="siteid"/>
+	            </form>
+	            <script type="text/javascript" src="<?php echo JS_PATH;?>jquery.select.js"></script>
+	        </div>
+            <img class="call-index" src="./statics/images/sl/call-index.png" />
 		</div>
 	</div>
 </div>
@@ -42,7 +74,7 @@ $userid = param::get_cookie('_userid');
 	<div class="slidetoolbar">
 		<div class="floatleft_l"></div>
 		<dl class="applist">
-			<dt class="sppitemwrap">
+<!-- 			<dt class="sppitemwrap">
 				<a class="appitem" href="./">首页</a>
 			</dt>
 			<?php $j=1;?>
@@ -58,6 +90,25 @@ $userid = param::get_cookie('_userid');
 					<?php $j++; ?>
 				<?php $n++;}unset($n); ?>
 			<?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+ -->
+                <?php $j=1;?>
+                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=d4b9fcce1375cacb7ce5e1c6ac8f3432&action=category&catid=0&num=20&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'0','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'20',));}?>
+                <dt class="sppitemwrap"><a class="appitem" href="<?php echo siteurl($siteid);?>">首页</a></dt>
+                <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?><!--  一级栏目循环开始  -->
+                <dd class="sppitemwrap"><a <?php if($r['catid'] == $catid || $CATEGORYS[$CAT[parentid]][catid]==$r['catid']) { ?>class="cur appitem"<?php } else { ?>class="appitem"<?php } ?> href="<?php echo $r['url'];?>"><?php echo $r['catname'];?></a>
+                    <?php if($r[arrchildid]) { ?> <!--是否有子栏目-->
+                    <dl>
+                    <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=d8d642270b91d440e3f49dac043edf3d&action=category&catid=%24r%5Bcatid%5D&num=20&siteid=%24siteid&order=listorder+ASC&return=data2\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data2 = $content_tag->category(array('catid'=>$r[catid],'siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'20',));}?>
+                        <?php $n=1;if(is_array($data2)) foreach($data2 AS $v) { ?><!--子栏目循环开始-->
+                        <dd><a href="<?php echo $v['url'];?>"><?php echo $v['catname'];?></a></dd>
+                        <?php $n++;}unset($n); ?><!--子栏目循环结束-->
+                    <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+                    </dl>
+                    <?php } ?>
+                </dd>
+                <?php $j++; ?>
+                <?php $n++;}unset($n); ?><!--  一级栏目循环结束-->
+                <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
 			<dt class="sppitemwrap nav-bl">
 				<a class="appitem" id="hideLeftMenu" href="javascript:void(0);" title="向左收起" onclick="hideIndexLeftMenu();">向左收起</a>
 			</dt>
@@ -67,18 +118,22 @@ $userid = param::get_cookie('_userid');
 </div>
 <div class="rsidebar_list">
 	<ul class="list_right">
-		<li class="first-child"><span>联系客服</span>
+		<li class="first-child icon-live"><span>联系客服</span>
 			<div class="kefulay" id="kefulay">
 				<p class="zx-btn">
 					<a href="http://wpa.b.qq.com" target="_blank">QQ在线咨询</a>
 				</p>
 				<p class="line"></p>
-				<p class="hotline"><strong>咨询热线:</strong></p>
-				<p class="hotlinenumber">025-59927781</p>
+				<p class="hotline"><strong>微信公众号咨询:</strong></p>
+				<p class="wxQrcode"></p>
 			</div>
 		</li>
-		<li><span>家装预约</span></li>
-		<li><span>一键报价</span></li>
+		<li class="icon-call"><span>电话咨询</span>
+			<div class="calllay" id="calllay">
+				<p><strong style="color:#000;padding-left:10px;">咨询热线:</strong></p>
+				<p class="hotline"><span style="font-size:16px;padding-left:25px;">025-59927781</span></p>
+			</div>
+		</li>
 		<li id="back-to-top" class="backtop last-child" style="display:none;"></li>
 	</ul>
 </div>

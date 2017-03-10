@@ -14,4 +14,8 @@ include SL_PATH.'/contents/base.php';
 
 pc_base::creat_app();
 
+//var_dump(get_included_files());
+//print_r($GLOBALS);
+//var_dump(get_defined_vars());
+//var_dump(get_defined_constants(true));
 ?>
